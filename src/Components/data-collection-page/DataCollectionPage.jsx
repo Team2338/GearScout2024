@@ -6,6 +6,8 @@ import { resetState } from '../../app/Actions';
 import { submitMatch } from '../../app/Effects.ts';
 import MatchInformation from '../match-information/MatchInformation'
 import AllianceSelection from './AllianceSelection';
+import Auto from '../auto-page/Auto';
+import Teleop from '../teleop-page/Teleop';
 
 const selector = (state) => ({
 
@@ -142,6 +144,7 @@ class ConnectedDataCollectionPage extends React.Component {
 	render() {
 		return (
 			<div className='background'>
+				 
 				<MatchInformation
 					scoutingTeamNumber={this.state.scoutingTeamNumber}
 					matchNumber={this.state.matchNumber}
@@ -150,6 +153,8 @@ class ConnectedDataCollectionPage extends React.Component {
 				/>
 				<div>
 					<AllianceSelection selectAlliance={this.setAllianceColor} selected={this.state.allianceColor}/>
+					<Auto />
+					<Teleop />
 				</div>
 				<div className='submit'>
 					<Button sx={{ m: 0.5 }} style={{textTransform: 'capitalize'}} variant='outlined' className='submit' href='/'>Back</Button>
