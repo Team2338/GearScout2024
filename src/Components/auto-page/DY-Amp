@@ -1,0 +1,28 @@
+import React, { useState } from 'react';
+import { Button } from '@mui/material';
+
+
+export default function AutoAmp() {
+  const [counter, setCounter] = useState(0);
+
+  function plusOne() {
+    setCounter(counter + 1);
+  };
+
+  function minusOne() {
+    setCounter(counter - 1);
+  };
+
+if (counter < 0) {
+    console.log("Cannot go below zero");
+    setCounter(0)
+}
+  return (
+    <div>
+        <div></div>
+        <Button variant='contained' onClick={plusOne}>+</Button>
+        <h1>{counter}</h1>
+        <Button variant='contained' onClick={minusOne}>-</Button>
+    </div>
+  );
+};
