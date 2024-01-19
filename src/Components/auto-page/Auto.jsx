@@ -4,7 +4,6 @@ import { styled } from '@mui/system';
 
 import './Auto.scss';
 
-import Header from './AutoSpeaker';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
