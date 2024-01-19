@@ -1,10 +1,11 @@
 import React from "react";
 import './Auto.scss'
+import AutoSpeaker from "./AutoSpeaker";
 
 export default function Auto() {
     return (
         <>
-        <h1>test</h1>
+        <AutoSpeaker />
         </>
     )
 }
