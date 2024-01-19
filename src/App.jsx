@@ -7,6 +7,7 @@ import { fetchOfflineRequests } from './app/Effects';
 import { useAppDispatch } from './app/Hooks';
 import DataCollectionPage from './Components/data-collection-page/DataCollectionPage';
 import LandingPage from './Components/landing-page/LandingPage';
+import Auto from './Components/auto-page/Auto';
 
 function App() {
 	const dispatch = useAppDispatch();
@@ -50,6 +51,7 @@ function App() {
 	return (
 		<div className="App">
 			{component}
+			
 		</div>
 	);
 }
