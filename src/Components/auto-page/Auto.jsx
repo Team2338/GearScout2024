@@ -1,9 +1,6 @@
 
-import { Button } from '@mui/material';
 import React from 'react';
-import Leave from './leave';
-import AutoSpeaker from './AutoSpeaker';
-import AutoAmp from './AutoAmp';
+import Leave from './Leave';
 import Counter from '../shared/counter/Counter';
 import './Auto.scss'
 

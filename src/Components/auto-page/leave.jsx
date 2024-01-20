@@ -15,12 +15,6 @@ function Leave(props) {
         setNo('outlined')
 	};
 
-	let blueColor = '#01233D';
-	let redColor = '#01233D';
-
-	
-
-
 	return (
 		<div className="spacing">
            

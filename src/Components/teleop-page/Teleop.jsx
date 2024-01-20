@@ -1,9 +1,6 @@
 import React from "react";
 import './Teleop.scss'
 import Stage from "./Stage";
-import Trap from "./Trap";
-import TeleopSpeaker from "./TeleopSpeaker";
-import TeleopAmp from "./TeleopAmp";
 import Counter from "../shared/counter/Counter";
 export default function Teleop() {
     const TeleopSpeaker = 'TeleopSpeaker'
