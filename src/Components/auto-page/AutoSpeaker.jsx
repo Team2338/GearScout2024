@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
+import '../shared/css/Counters.scss'
 
 
 export default function AutoSpeaker() { 
@@ -19,7 +20,6 @@ export default function AutoSpeaker() {
         <div className="layout">
         <Button variant='contained' onClick={minusOne}>-</Button>
         <h3 className="name">{counter}</h3>
-        <div>Auto Speaker</div>
         <Button variant='contained' onClick={plusOne}>+</Button>
         </div>
     )

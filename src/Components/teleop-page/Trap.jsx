@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import "./Trap.scss"
+import '../shared/css/Counters.scss'
 
 export default function Trap() { 
     const [counter, setCounter] = useState(0)

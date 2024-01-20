@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-
+import '../shared/css/Counters.scss'
 
 export default function TeleopAmp() { 
     const [counter, setCounter] = useState(0)
@@ -19,7 +19,6 @@ export default function TeleopAmp() {
         <div className="layout">
         <Button variant='contained' onClick={minusOne}>-</Button>
         <h3 className="name">{counter}</h3>
-        <div>Teleop Amp</div>
         <Button variant='contained' onClick={plusOne}>+</Button>
         </div>
     )
