@@ -20,8 +20,8 @@ export default function Auto() {
         <h3>Speaker</h3>
         <InfoButton text={AutoSpeakerInfoText} />
         <Counter type={AutoSpeaker} />
-        <InfoButton text={AutoAmpInfoText} />
         <h3>Amp</h3>
+        <InfoButton text={AutoAmpInfoText} />
         <Counter type={AutoAmp} />
         </>
     )
