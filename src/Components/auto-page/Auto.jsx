@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Leave from './Leave';
+import Leave from './leave';
 import Counter from '../shared/counter/Counter';
 import './Auto.scss'
 
