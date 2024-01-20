@@ -11,7 +11,7 @@ export default function Teleop() {
     const TeleopSpeakerInfoText  = 'Click the + and - buttons to note how many Notes the robot scored in the SPEAKER during Teleop.'
     const TeleopAmpInfoText = 'Click the + and - buttons to note how many Notes the robot scored in the AMP during Teleop.'
     const TrapInfoText = 'Click the + and - buttons to note how many Notes the robot scored in the TRAP: maximum of 3.'
-    const StageInfoText = 'Click the appropriate button to show if the robot parked or climbed with the number robots on the same chain.'
+    const StageInfoText = 'Click the appropriate button to show if the robot parked or climbed with the number of robots on the same chain.'
     return (
         <>
         <h1>Teleop</h1>
