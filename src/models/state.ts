@@ -5,12 +5,15 @@ export interface AppState {
 		matches: ICachedMatch[]
 	};
 	teleop: {
-		grid: number[];
-		chargeStation: number;
+		lowGoal: number
+		highGoal: number
+		trap: number
+		stageClimb: number
 	};
 	auto: {
-		grid: number[];
-		park: number;
-		chargeStation: number;
+		mobility: number
+		lowGoal: number
+		highGoal: number
+
 	};
 }

@@ -1,26 +1,22 @@
 import { AppState } from '../models/state';
 import { ActionTypes } from './Actions';
 
-function generateNodeStates(): number[] {
-	const states: number[] = [];
-	for (let i = 0; i < 27; i++) {
-		states.push(0);
-	}
-	return states;
-}
+
 
 const INITIAL_STATE: AppState = {
 	cache: {
 		matches: []
 	},
 	auto: {
-		grid: generateNodeStates(),
-		park: 0,
-		chargeStation: 0
+		mobility: 0,
+		lowGoal: 0,
+		highGoal: 0
 	},
 	teleop: {
-		grid: generateNodeStates(),
-		chargeStation: 0
+		lowGoal: 0,
+		highGoal: 0,
+		trap: 0,
+		stageClimb: 0
 	}
 };
 
@@ -32,6 +28,7 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 				auto: INITIAL_STATE.auto,
 				teleop: INITIAL_STATE.teleop
 			};
+			//remove above
 		case ActionTypes.GET_OFFLINE_MATCHES_SUCCESS:
 			return {
 				...state,
@@ -46,66 +43,63 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 					matches: []
 				}
 			};
-		case ActionTypes.ACTIVATE_AUTO_NODE:
-			return handleActivateAutoNode(state, action.payload);
-		case ActionTypes.ACTIVATE_TELEOP_NODE:
-			return handleActivateTeleopNode(state, action.payload);
-		case ActionTypes.SET_AUTO_PARK:
+		case ActionTypes.MOBILITY_2024:
+			return {
+				...state, 
+				auto: {
+					...state.auto,
+					mobility: action.payload
+				}
+			}
+		case ActionTypes.AUTO_HIGH_GOAL_2024:
 			return {
 				...state,
 				auto: {
 					...state.auto,
-					park: action.payload
+					highGoal: action.payload
 				}
-			};
-		case ActionTypes.SET_AUTO_CHARGE_STATION:
+			}
+		case ActionTypes.AUTO_LOW_GOAL_2024:
 			return {
 				...state,
 				auto: {
 					...state.auto,
-					chargeStation: action.payload
+					lowGoal: action.payload
+					}
 				}
-			};
-		case ActionTypes.SET_TELEOP_CHARGE_STATION:
+		case ActionTypes.TELEOP_HIGH_GOAL_2024:
 			return {
 				...state,
 				teleop: {
 					...state.teleop,
-					chargeStation: action.payload
+					highGoal: action.payload
 				}
-			};
+			}
+		case ActionTypes.TELEOP_LOW_GOAL_2024:
+			return {
+				...state,
+				teleop: {
+					...state.teleop,
+					lowGoal: action.payload
+				}
+			}
+		case ActionTypes.CLIMB_2024:
+			return {
+				...state,
+				teleop: {
+					...state.teleop,
+					stageClimb: action.payload
+				}
+			}
+		case ActionTypes.ENDGAME_2024:
+			return {
+				...state, 
+				teleop: {
+					...state.teleop,
+					trap: action.payload
+				}
+			}
 		default:
 			return state;
 	}
-}
-
-function handleActivateAutoNode(state, index): AppState {
-	const autoGrid = state.auto.grid.slice();
-	autoGrid[index] = (state.auto.grid[index] + 1) % 2;
-
-	return {
-		...state,
-		auto: {
-			...state.auto,
-			grid: autoGrid
-		}
-	};
-}
-
-function handleActivateTeleopNode(state, index): AppState {
-	const teleopGrid = state.teleop.grid.slice();
-	const numAutoPieces = state.auto.grid[index];
-	const maxTeleopPieces = 2 - numAutoPieces;
-	const currentTeleopPieces = teleopGrid[index];
-
-	teleopGrid[index] = (currentTeleopPieces + 1) % (maxTeleopPieces + 1);
-
-	return {
-		...state,
-		teleop: {
-			...state.teleop,
-			grid: teleopGrid
-		}
-	};
-
 }
