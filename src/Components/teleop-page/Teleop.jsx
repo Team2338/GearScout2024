@@ -3,7 +3,7 @@ import './Teleop.scss'
 import Stage from "./Stage";
 import Counter from "../shared/counter/Counter";
 import InfoButton from "../shared/info-buttons/InfoButtons";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setLowGoal, setHighGoal, setEndgame } from "../../app/Actions";
 
 export default function Teleop() {
@@ -17,8 +17,6 @@ export default function Teleop() {
 
     
     const dispatch = useDispatch()
-    const ampValue = useSelector(state => state.auto.lowGoal)
-    const speakerValue = useSelector(state => state.auto.highGoal)
 
     const lowGoal = (counter) => dispatch(setLowGoal('teleop', counter))
     const highGoal = (counter) => dispatch(setHighGoal('teleop', counter))
