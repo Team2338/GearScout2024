@@ -63,26 +63,4 @@ export const setEndgame = (value) => {
 		payload: value
 	}
 }
-// 2024 code above
 
-export const activateNode = (gamemode, index) => {
-	const type = (gamemode === 'teleop') ? ActionTypes.ACTIVATE_TELEOP_NODE : ActionTypes.ACTIVATE_AUTO_NODE;
-	return {
-		type: type,
-		payload: index
-	};
-};
-
-export const setAutoPark = (value) => {
-	return {
-		type: ActionTypes.SET_AUTO_PARK,
-		payload: value
-	};
-};
-
-export const setChargeStation = (gamemode, value) => {
-	return {
-		type: (gamemode === 'teleop') ? ActionTypes.SET_TELEOP_CHARGE_STATION : ActionTypes.SET_AUTO_CHARGE_STATION,
-		payload: value
-	};
-};

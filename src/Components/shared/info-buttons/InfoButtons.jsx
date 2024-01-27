@@ -5,7 +5,7 @@ import {
 import React, { useState } from 'react';
 
 
- function InfoButton({ text, showOnHover }) {
+ function InfoButton({ text }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [anchorEl, setAnchorEl] = useState(null);
 

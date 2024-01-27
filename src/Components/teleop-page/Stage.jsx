@@ -1,7 +1,21 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setClimb } from '../../app/Actions';
 
-function Stage(props) {
+function Stage() {
+
+    const stageValues = {
+        none: 0,
+        park: 1,
+        single: 3,
+        double: 5,
+        triple: 7
+    }
+
+    const dispatch = useDispatch();
+    const stageValue = useSelector(state => state.teleop.stageClimb)
+
     const [None, setNone] = useState('outlined')
     const [Parked, setParked] = useState('outlined')
     const [Single, setSingle ] = useState('outlined')
@@ -14,6 +28,7 @@ function Stage(props) {
         setSingle('outlined')
         setDouble('outlined')
         setTriple('outlined')
+        dispatch(setClimb(stageValues.none))
 	};
 
 	const handleParkedClick = () => {
@@ -22,7 +37,7 @@ function Stage(props) {
         setSingle('outlined')
         setDouble('outlined')
         setTriple('outlined')
-
+        dispatch(setClimb(stageValues.park))
 	};
 
     const handleSingleClick = () => {
@@ -31,7 +46,7 @@ function Stage(props) {
         setParked('outlined')
         setDouble('outlined')
         setTriple('outlined')
-
+        dispatch(setClimb(stageValues.single))
     };
 
     const handleDoubleClick = () => {
@@ -40,6 +55,7 @@ function Stage(props) {
         setParked('outlined')
         setSingle('outlined')
         setTriple('outlined')
+        dispatch(setClimb(stageValues.double))
     }
 
     const handleTripleClick = () => {
@@ -48,14 +64,8 @@ function Stage(props) {
         setParked('outlined')
         setSingle('outlined')
         setDouble('outlined')
+        dispatch(setClimb(stageValues.triple))
     }
-
-
-	let blueColor = '#01233D';
-	let redColor = '#01233D';
-
-	
-
 
 	return (
 		<div className="spacing">

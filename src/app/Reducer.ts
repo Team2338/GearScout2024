@@ -28,7 +28,7 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 				auto: INITIAL_STATE.auto,
 				teleop: INITIAL_STATE.teleop
 			};
-			//remove above
+			
 		case ActionTypes.GET_OFFLINE_MATCHES_SUCCESS:
 			return {
 				...state,

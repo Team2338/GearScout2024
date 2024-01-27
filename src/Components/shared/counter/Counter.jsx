@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import '../css/Counters.scss'
 
-export default function Counter({type}) { 
+
+
+export default function Counter({type, change}) { 
     const [counter, setCounter] = useState(0)
 
     function plusOne() {
         setCounter(counter + 1)
+        change(counter)
     }
     function minusOne() {
         setCounter(counter - 1 )
+        change(counter)
     }
     if (counter < 0) {
         console.log('cannot have less than zero game pieces, resetting to zero')
