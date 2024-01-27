@@ -10,6 +10,13 @@ import Auto from '../auto-page/Auto';
 import Teleop from '../teleop-page/Teleop';
 
 const selector = (state) => ({
+	mobility: state.auto.mobility,
+	autoHighGoal: state.auto.highGoal,
+	autoLowGoal: state.auto.lowGoal,
+	teleopHighGoal: state.teleop.highGoal,
+	teleopLowGoal: state.teleop.lowGoal,
+	stageClimb: state.teleop.stageClimb,
+	trap: state.teleop.trap
 
 });
 
@@ -22,8 +29,6 @@ const INITIAL_STATE = {
 	scoutingTeamNumber: '',
 	matchNumber: '',
 	allianceColor: 'UNKNOWN',
-	isAutoNullified: false,
-	isTeleopNullified: false
 }
 
 class ConnectedDataCollectionPage extends React.Component {
@@ -50,62 +55,55 @@ class ConnectedDataCollectionPage extends React.Component {
 		});
 	};
 
-	setAutoNullified = (value) => {
-		this.setState({
-			isAutoNullified: value
-		});
-	};
-
-	setTeleopNullified = (value) => {
-		this.setState({
-			isTeleopNullified: value
-		});
-	};
 
 	generateObjectives = () => {
 		const autoObjectives = [
 			{
 				gamemode: 'AUTO',
-				objective: 'MOBILITY_2023',
-				count: this.props.autoMobility
+				objective: 'MOBILITY_2024',
+				count: this.props.mobility
 			},
 			{
 				gamemode: 'AUTO',
-				objective: 'CHARGE_STATION_2023',
-				count: this.props.autoChargeStation
+				objective: 'AUTO_HIGH_GOAL_2024',
+				count: this.props.autoHighGoal
 			},
 			{
 				gamemode: 'AUTO',
-				objective: 'GRID_2023',
-				count: this.props.autoGrid.reduce((sum, value) => sum + value),
-				list: this.props.autoGrid
+				objective: 'AUTO_LOW_GOAL_2024',
+				count: this.props.autoLowGoal
 			},
 		];
 
 		const teleopObjectives = [
 			{
 				gamemode: 'TELEOP',
-				objective: 'CHARGE_STATION_2023',
-				count: this.props.teleopChargeStation
+				objective: 'TELEOP_HIGH_GOAL_2024',
+				count: this.props.teleopHighGoal
 			},
 			{
 				gamemode: 'TELEOP',
-				objective: 'GRID_2023',
-				count: this.props.teleopGrid.reduce((sum, value) => sum + value),
-				list: this.props.teleopGrid
+				objective: 'TELEOP_LOW_GOAL_2024',
+				count: this.props.teleopLowGoal
+			},
+			{
+				gamemode: 'TELEOP',
+				objective: 'CLIMB_2024',
+				count: this.props.stageClimb
+			},
+			{
+				gamemode: 'TELEOP',
+				objective: 'ENDGAME_2024',
+				count: this.props.trap
 			}
 		];
 
 		const objectives = [];
-		if (!this.state.isAutoNullified) {
 			objectives.push(...autoObjectives);
-		}
 
-		if (!this.state.isTeleopNullified) {
 			objectives.push(...teleopObjectives);
-		}
 
-		return objectives;
+			return objectives;
 	}
 
 	submit = () => {
@@ -131,6 +129,7 @@ class ConnectedDataCollectionPage extends React.Component {
 			robotNumber: this.state.scoutingTeamNumber,
 			creator: this.props.scouterName,
 			allianceColor: this.state.allianceColor,
+			gameYear: 2024,
 			objectives: this.generateObjectives()
 		};
 

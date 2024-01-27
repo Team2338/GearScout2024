@@ -4,6 +4,8 @@ import Leave from './leave';
 import Counter from '../shared/counter/Counter';
 import './Auto.scss'
 import InfoButton from '../shared/info-buttons/InfoButtons';
+import { useDispatch } from 'react-redux';
+import { setLowGoal, setHighGoal } from '../../app/Actions';
 
 export default function Auto() {
     const AutoSpeaker = "AutoSpeaker"
@@ -11,6 +13,13 @@ export default function Auto() {
     const LeaveInfoText = 'Click yes if the robot left their starting zone during Autonomous.'
     const AutoSpeakerInfoText = 'Click the + and - buttons to note how many Notes the robot scored in the SPEAKER during Auto.'
     const AutoAmpInfoText = 'Click the + and - buttons to note how many Notes the robot scored in the AMP during Auto.'
+
+    const dispatch = useDispatch()
+
+    const lowGoal = (counter) => dispatch(setLowGoal('auto', counter))
+    const highGoal = (counter) => dispatch(setHighGoal('auto', counter))
+    
+
     return (
         <>
         <h1>Auto</h1>
@@ -19,10 +28,10 @@ export default function Auto() {
         <Leave />
         <h3>Speaker</h3>
         <InfoButton text={AutoSpeakerInfoText} />
-        <Counter type={AutoSpeaker} />
+        <Counter type={AutoSpeaker} change={highGoal} />
         <h3>Amp</h3>
         <InfoButton text={AutoAmpInfoText} />
-        <Counter type={AutoAmp} />
+        <Counter type={AutoAmp} change={lowGoal} />
         </>
     )
 }
