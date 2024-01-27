@@ -9,11 +9,11 @@ export default function Counter({type, change}) {
 
     function plusOne() {
         setCounter(counter + 1)
-        change(counter)
+        change(counter + 1)
     }
     function minusOne() {
         setCounter(counter - 1 )
-        change(counter)
+        change(counter - 1)
     }
     if (counter < 0) {
         console.log('cannot have less than zero game pieces, resetting to zero')
