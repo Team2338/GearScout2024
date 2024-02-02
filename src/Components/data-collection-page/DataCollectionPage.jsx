@@ -65,12 +65,12 @@ class ConnectedDataCollectionPage extends React.Component {
 			},
 			{
 				gamemode: 'AUTO',
-				objective: 'AUTO_HIGH_GOAL_2024',
+				objective: 'HIGH_GOAL_2024',
 				count: this.props.autoHighGoal
 			},
 			{
 				gamemode: 'AUTO',
-				objective: 'AUTO_LOW_GOAL_2024',
+				objective: 'LOW_GOAL_2024',
 				count: this.props.autoLowGoal
 			},
 		];
@@ -78,12 +78,12 @@ class ConnectedDataCollectionPage extends React.Component {
 		const teleopObjectives = [
 			{
 				gamemode: 'TELEOP',
-				objective: 'TELEOP_HIGH_GOAL_2024',
+				objective: 'HIGH_GOAL_2024',
 				count: this.props.teleopHighGoal
 			},
 			{
 				gamemode: 'TELEOP',
-				objective: 'TELEOP_LOW_GOAL_2024',
+				objective: 'LOW_GOAL_2024',
 				count: this.props.teleopLowGoal
 			},
 			{
