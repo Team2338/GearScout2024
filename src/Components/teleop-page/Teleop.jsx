@@ -26,7 +26,7 @@ export default function Teleop() {
         <Counter type={TeleopSpeaker} change={highGoal} />
         <h3 className="padding">Amp</h3>
         <Counter type={TeleopAmp} change={lowGoal} />
-        <h3>Trap</h3>
+        <h3 className="padding">Trap</h3>
         <Counter type={Trap} change={trap} /> 
         <h3 className="padding">Stage</h3>
         <Stage />
