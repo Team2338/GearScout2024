@@ -5,7 +5,7 @@ import '../css/Counters.scss'
 
 
 export default function Counter({type, change}) { 
-    const [counter, setCounter] = useState(0)
+    let [counter, setCounter] = useState(0)
 
     function plusOne() {
         setCounter(counter + 1)
@@ -18,10 +18,12 @@ export default function Counter({type, change}) {
     if (counter < 0) {
         console.log('cannot have less than zero game pieces, resetting to zero')
         setCounter(0)
+        change(counter = 0)
     }
     if (type==='Trap' && counter > 3) {
         console.log('cannot have greater than 3 in trap! resetting to max')
         setCounter(3)
+        change(counter = 3)
 
 
     }
