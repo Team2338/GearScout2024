@@ -10,7 +10,7 @@ class GearscoutService {
 	});
 
 	submitMatch = (teamNumber: string, secretCode: string, match: IMatch): GearscoutResponse<void> => {
-		const url: string = `/team/${teamNumber}`;
+		const url: string = `/team/${ teamNumber }`;
 		const config: AxiosRequestConfig = {
 			headers: {
 				secretCode: secretCode

@@ -2,7 +2,6 @@ import { AppState } from '../models/state';
 import { ActionTypes } from './Actions';
 
 
-
 const INITIAL_STATE: AppState = {
 	cache: {
 		matches: []
@@ -28,7 +27,7 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 				auto: INITIAL_STATE.auto,
 				teleop: INITIAL_STATE.teleop
 			};
-			
+
 		case ActionTypes.GET_OFFLINE_MATCHES_SUCCESS:
 			return {
 				...state,
@@ -45,12 +44,12 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 			};
 		case ActionTypes.MOBILITY_2024:
 			return {
-				...state, 
+				...state,
 				auto: {
 					...state.auto,
 					mobility: action.payload
 				}
-			}
+			};
 		case ActionTypes.AUTO_HIGH_GOAL_2024:
 			return {
 				...state,
@@ -58,15 +57,15 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 					...state.auto,
 					highGoal: action.payload
 				}
-			}
+			};
 		case ActionTypes.AUTO_LOW_GOAL_2024:
 			return {
 				...state,
 				auto: {
 					...state.auto,
 					lowGoal: action.payload
-					}
 				}
+			};
 		case ActionTypes.TELEOP_HIGH_GOAL_2024:
 			return {
 				...state,
@@ -74,7 +73,7 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 					...state.teleop,
 					highGoal: action.payload
 				}
-			}
+			};
 		case ActionTypes.TELEOP_LOW_GOAL_2024:
 			return {
 				...state,
@@ -82,7 +81,7 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 					...state.teleop,
 					lowGoal: action.payload
 				}
-			}
+			};
 		case ActionTypes.CLIMB_2024:
 			return {
 				...state,
@@ -90,15 +89,15 @@ export function reducer(state: AppState = INITIAL_STATE, action): AppState {
 					...state.teleop,
 					stageClimb: action.payload
 				}
-			}
+			};
 		case ActionTypes.ENDGAME_2024:
 			return {
-				...state, 
+				...state,
 				teleop: {
 					...state.teleop,
 					trap: action.payload
 				}
-			}
+			};
 		default:
 			return state;
 	}

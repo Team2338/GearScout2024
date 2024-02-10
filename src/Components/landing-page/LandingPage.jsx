@@ -62,7 +62,7 @@ class ConnectedLandingPage extends React.Component {
 			|| this.state.scouterName.length === 0
 			|| this.state.secretCode.length === 0
 		);
-	}
+	};
 
 	render() {
 		return (
@@ -84,15 +84,15 @@ class ConnectedLandingPage extends React.Component {
 						label="Your Team Number"
 						variant="filled"
 						type="number"
-						onChange={this.handleChange}
-						value={this.state.teamNumber}
-						InputProps={{
+						onChange={ this.handleChange }
+						value={ this.state.teamNumber }
+						InputProps={ {
 							startAdornment: <InputAdornment position="start">#</InputAdornment>
-						}}
-						inputProps={{
+						} }
+						inputProps={ {
 							min: 0,
 							max: 9999
-						}}
+						} }
 					/>
 				</div>
 
@@ -103,12 +103,12 @@ class ConnectedLandingPage extends React.Component {
 						label="Event Code"
 						variant="filled"
 						type="text"
-						onChange={this.handleChange}
-						value={this.state.eventCode}
+						onChange={ this.handleChange }
+						value={ this.state.eventCode }
 						placeholder="Event Code"
-						inputProps={{
+						inputProps={ {
 							maxLength: 32
-						}}
+						} }
 					/>
 				</div>
 
@@ -119,12 +119,12 @@ class ConnectedLandingPage extends React.Component {
 						label="Scouter Name"
 						variant="filled"
 						type="text"
-						onChange={this.handleChange}
-						value={this.state.scouterName}
+						onChange={ this.handleChange }
+						value={ this.state.scouterName }
 						placeholder="Scouter Name"
-						inputProps={{
+						inputProps={ {
 							maxLength: 32
-						}}
+						} }
 					/>
 				</div>
 				<div className="landingpage-forms">
@@ -134,12 +134,12 @@ class ConnectedLandingPage extends React.Component {
 						label="Secret Code"
 						variant="filled"
 						type="text"
-						onChange={this.handleChange}
-						value={this.state.secretCode}
+						onChange={ this.handleChange }
+						value={ this.state.secretCode }
 						placeholder="Secret Code"
-						inputProps={{
+						inputProps={ {
 							maxLength: 32
-						}}
+						} }
 					/>
 				</div>
 
@@ -152,8 +152,8 @@ class ConnectedLandingPage extends React.Component {
 					type="button"
 					variant="contained"
 					size="medium"
-					onClick={this.handleClick}
-					disabled={this.isSubmitDisabled()}
+					onClick={ this.handleClick }
+					disabled={ this.isSubmitDisabled() }
 				>
 					Submit
 				</Button>
@@ -161,12 +161,12 @@ class ConnectedLandingPage extends React.Component {
 					variant="contained"
 					size="medium"
 					color="primary"
-					onClick={() => this.props.sendOfflineRequests()}
-					disabled={this.props.numOfflineMatches === 0}
-					sx={{
+					onClick={ () => this.props.sendOfflineRequests() }
+					disabled={ this.props.numOfflineMatches === 0 }
+					sx={ {
 						marginTop: 'auto',
 						marginBottom: '24px'
-					}}
+					} }
 				>
 					Retry saved matches
 				</Button>

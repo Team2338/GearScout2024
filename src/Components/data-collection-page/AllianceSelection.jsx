@@ -16,8 +16,7 @@ function AllianceSelection(props) {
 
 	if (props.selected === 'RED') {
 		redColor = '#EE4444';
-	}
-	else if (props.selected === 'BLUE') {
+	} else if (props.selected === 'BLUE') {
 		blueColor = '#5577FF';
 	}
 
@@ -25,18 +24,18 @@ function AllianceSelection(props) {
 	return (
 		<div className="spacing">
 			<Button
-				sx={{ m: 0.5 }}
-				style={{ backgroundColor: redColor, margin: 5, textTransform: 'capitalize' }}
-				variant={props.selected === 'RED' ? 'contained' : 'outlined'}
-				onClick={handleRedClick}
+				sx={ {m: 0.5} }
+				style={ {backgroundColor: redColor, margin: 5, textTransform: 'capitalize'} }
+				variant={ props.selected === 'RED' ? 'contained' : 'outlined' }
+				onClick={ handleRedClick }
 			>
 				Red Alliance
 			</Button>
 			<Button
-				sx={{ m: 0.5 }}
-				style={{ backgroundColor: blueColor, margin: 5, textTransform: 'capitalize' }}
-				variant={props.selected === 'BLUE' ? 'contained' : 'outlined'}
-				onClick={handleBlueClick}
+				sx={ {m: 0.5} }
+				style={ {backgroundColor: blueColor, margin: 5, textTransform: 'capitalize'} }
+				variant={ props.selected === 'BLUE' ? 'contained' : 'outlined' }
+				onClick={ handleBlueClick }
 			>
 				Blue Alliance
 			</Button>

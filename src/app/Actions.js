@@ -32,35 +32,35 @@ export const clearOfflineMatches = () => {
 //2024 code below
 export const setMobility = (value) => {
 	return {
-	type: ActionTypes.MOBILITY_2024,
-	payload: value
-	}
-}
+		type: ActionTypes.MOBILITY_2024,
+		payload: value
+	};
+};
 export const setHighGoal = (gamemode, value) => {
-	const type = (gamemode === 'teleop') ? ActionTypes.TELEOP_HIGH_GOAL_2024 : ActionTypes.AUTO_HIGH_GOAL_2024
+	const type = (gamemode === 'teleop') ? ActionTypes.TELEOP_HIGH_GOAL_2024 : ActionTypes.AUTO_HIGH_GOAL_2024;
 	return {
 		type: type,
 		payload: value
 
-	}
-}
+	};
+};
 export const setLowGoal = (gamemode, value) => {
-	const type = (gamemode === 'teleop') ? ActionTypes.TELEOP_LOW_GOAL_2024 : ActionTypes.AUTO_LOW_GOAL_2024
+	const type = (gamemode === 'teleop') ? ActionTypes.TELEOP_LOW_GOAL_2024 : ActionTypes.AUTO_LOW_GOAL_2024;
 	return {
 		type: type,
 		payload: value
-	}
-}
+	};
+};
 export const setClimb = (value) => {
 	return {
 		type: ActionTypes.CLIMB_2024,
 		payload: value
-	}
-}
+	};
+};
 export const setEndgame = (value) => {
 	return {
 		type: ActionTypes.ENDGAME_2024,
 		payload: value
-	}
-}
+	};
+};
 

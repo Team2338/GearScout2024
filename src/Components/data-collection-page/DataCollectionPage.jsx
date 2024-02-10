@@ -1,10 +1,10 @@
-import './DataCollectionPage.scss'
+import './DataCollectionPage.scss';
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
 import { resetState } from '../../app/Actions';
 import { submitMatch } from '../../app/Effects.ts';
-import MatchInformation from '../match-information/MatchInformation'
+import MatchInformation from '../match-information/MatchInformation';
 import AllianceSelection from './AllianceSelection';
 import Auto from '../auto-page/Auto';
 import Teleop from '../teleop-page/Teleop';
@@ -29,7 +29,7 @@ const INITIAL_STATE = {
 	scoutingTeamNumber: '',
 	matchNumber: '',
 	allianceColor: 'UNKNOWN',
-}
+};
 
 class ConnectedDataCollectionPage extends React.Component {
 	constructor(props) {
@@ -99,12 +99,12 @@ class ConnectedDataCollectionPage extends React.Component {
 		];
 
 		const objectives = [];
-			objectives.push(...autoObjectives);
+		objectives.push(...autoObjectives);
 
-			objectives.push(...teleopObjectives);
+		objectives.push(...teleopObjectives);
 
-			return objectives;
-	}
+		return objectives;
+	};
 
 	submit = () => {
 		// Let the user know if they missed an input
@@ -142,22 +142,27 @@ class ConnectedDataCollectionPage extends React.Component {
 
 	render() {
 		return (
-			<div className='background'>
-				 
+			<div className="background">
+
 				<MatchInformation
-					scoutingTeamNumber={this.state.scoutingTeamNumber}
-					matchNumber={this.state.matchNumber}
-					setScoutingTeamNumber={this.setRobotNumber}
-					setMatchNumber={this.setMatchNumber}
+					scoutingTeamNumber={ this.state.scoutingTeamNumber }
+					matchNumber={ this.state.matchNumber }
+					setScoutingTeamNumber={ this.setRobotNumber }
+					setMatchNumber={ this.setMatchNumber }
 				/>
 				<div>
-					<AllianceSelection selectAlliance={this.setAllianceColor} selected={this.state.allianceColor}/>
-					<Auto />
-					<Teleop />
+					<AllianceSelection selectAlliance={ this.setAllianceColor } selected={ this.state.allianceColor }/>
+					<Auto/>
+					<Teleop/>
 				</div>
-				<div className='submit'>
-					<Button sx={{ m: 0.5 }} style={{textTransform: 'capitalize'}} variant='outlined' className='submit' href='/'>Back</Button>
-					<Button sx={{ m: 0.5 }} style={{textTransform: 'capitalize'}} variant='contained' className='submit' onClick={this.submit}>Submit</Button>
+				<div className="submit">
+					<Button
+						sx={ {m: 0.5} } style={ {textTransform: 'capitalize'} } variant="outlined" className="submit" href="/"
+					>Back</Button>
+					<Button
+						sx={ {m: 0.5} } style={ {textTransform: 'capitalize'} } variant="contained" className="submit"
+						onClick={ this.submit }
+					>Submit</Button>
 				</div>
 			</div>
 		);

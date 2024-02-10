@@ -1,4 +1,3 @@
-
 export enum Gamemodes {
 	teleop = 'TELEOP',
 	auto = 'AUTO'
