@@ -3,11 +3,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@mui/material/Button';
 import { resetState } from '../../app/Actions';
-import { submitMatch } from '../../app/Effects.ts';
+import { submitMatch } from '../../app/Effects';
 import MatchInformation from '../match-information/MatchInformation';
 import AllianceSelection from './AllianceSelection';
 import Auto from '../auto-page/Auto';
 import Teleop from '../teleop-page/Teleop';
+import { AllianceColor, Gamemode, IMatch, IObjective } from '../../models/models';
+
+interface IComponentState {
+	scoutingTeamNumber: string;
+	matchNumber: string;
+	allianceColor: AllianceColor;
+}
 
 const selector = (state) => ({
 	mobility: state.auto.mobility,
@@ -22,100 +29,90 @@ const selector = (state) => ({
 
 const connectDispatch = (dispatch) => ({
 	resetState: () => dispatch(resetState()),
-	submitMatch: (teamNumber, secretCode, match) => dispatch(submitMatch(teamNumber, secretCode, match)),
+	submitMatch: (teamNumber: string, secretCode: string, match: IMatch) => dispatch(submitMatch(teamNumber, secretCode, match))
 });
 
-const INITIAL_STATE = {
+const INITIAL_STATE: IComponentState = {
 	scoutingTeamNumber: '',
 	matchNumber: '',
-	allianceColor: 'UNKNOWN',
+	allianceColor: AllianceColor.unknown
 };
 
-class ConnectedDataCollectionPage extends React.Component {
+class ConnectedDataCollectionPage extends React.Component<any, IComponentState> {
 	constructor(props) {
 		super(props);
 		this.state = INITIAL_STATE;
 	}
 
-	setRobotNumber = (robotNumber) => {
+	setRobotNumber = (robotNumber: string) => {
 		this.setState({
 			scoutingTeamNumber: robotNumber
 		});
 	};
 
-	setMatchNumber = (matchNumber) => {
+	setMatchNumber = (matchNumber: string) => {
 		this.setState({
 			matchNumber: matchNumber
 		});
 	};
 
-	setAllianceColor = (color) => {
+	setAllianceColor = (color: AllianceColor) => {
 		this.setState({
 			allianceColor: color
 		});
 	};
 
 
-	generateObjectives = () => {
-		const autoObjectives = [
+	generateObjectives = (): IObjective[] => {
+		return [
 			{
-				gamemode: 'AUTO',
+				gamemode: Gamemode.auto,
 				objective: 'MOBILITY_2024',
 				count: this.props.mobility
 			},
 			{
-				gamemode: 'AUTO',
+				gamemode: Gamemode.auto,
 				objective: 'HIGH_GOAL_2024',
 				count: this.props.autoHighGoal
 			},
 			{
-				gamemode: 'AUTO',
+				gamemode: Gamemode.auto,
 				objective: 'LOW_GOAL_2024',
 				count: this.props.autoLowGoal
 			},
-		];
-
-		const teleopObjectives = [
 			{
-				gamemode: 'TELEOP',
+				gamemode: Gamemode.teleop,
 				objective: 'HIGH_GOAL_2024',
 				count: this.props.teleopHighGoal
 			},
 			{
-				gamemode: 'TELEOP',
+				gamemode: Gamemode.teleop,
 				objective: 'LOW_GOAL_2024',
 				count: this.props.teleopLowGoal
 			},
 			{
-				gamemode: 'TELEOP',
+				gamemode: Gamemode.teleop,
 				objective: 'CLIMB_2024',
 				count: this.props.stageClimb
 			},
 			{
-				gamemode: 'TELEOP',
+				gamemode: Gamemode.teleop,
 				objective: 'ENDGAME_2024',
 				count: this.props.trap
 			}
 		];
-
-		const objectives = [];
-		objectives.push(...autoObjectives);
-
-		objectives.push(...teleopObjectives);
-
-		return objectives;
 	};
 
 	submit = () => {
 		// Let the user know if they missed an input
-		const problems = [];
+		const problems: string[] = [];
 		if (this.state.matchNumber.length === 0) {
 			problems.push('You must specify a match number');
 		}
 		if (this.state.scoutingTeamNumber.length === 0) {
 			problems.push('You must specify a team number');
 		}
-		if (this.state.allianceColor === 'UNKNOWN') {
+		if (this.state.allianceColor === AllianceColor.unknown) {
 			problems.push('You must specify an alliance color');
 		}
 		if (problems.length > 0) {
@@ -123,13 +120,13 @@ class ConnectedDataCollectionPage extends React.Component {
 			return;
 		}
 
-		const match = {
+		const match: IMatch = {
+			gameYear: 2024,
 			eventCode: this.props.eventCode,
 			matchNumber: this.state.matchNumber,
 			robotNumber: this.state.scoutingTeamNumber,
 			creator: this.props.scouterName,
 			allianceColor: this.state.allianceColor,
-			gameYear: 2024,
 			objectives: this.generateObjectives()
 		};
 
@@ -151,9 +148,9 @@ class ConnectedDataCollectionPage extends React.Component {
 					setMatchNumber={ this.setMatchNumber }
 				/>
 				<div>
-					<AllianceSelection selectAlliance={ this.setAllianceColor } selected={ this.state.allianceColor }/>
-					<Auto/>
-					<Teleop/>
+					<AllianceSelection selectAlliance={ this.setAllianceColor } selected={ this.state.allianceColor } />
+					<Auto />
+					<Teleop />
 				</div>
 				<div className="submit">
 					<Button

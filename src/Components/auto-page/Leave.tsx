@@ -1,18 +1,18 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { setMobility } from '../../app/Actions';
+import { useAppDispatch, useAppSelector } from '../../app/Hooks';
 
 function Leave() {
 	const leaveValues = {
 		no: 0,
 		yes: 2
 	};
-	const dispatch = useDispatch();
-	const leaveValue = useSelector(state => state.auto.mobility);
+	const dispatch = useAppDispatch();
+	const leaveValue = useAppSelector(state => state.auto.mobility);
 
-	const [no, setNo] = useState('outlined');
-	const [yes, setYes] = useState('outlined');
+	const [no, setNo] = useState<'outlined' | 'contained'>('outlined');
+	const [yes, setYes] = useState<'outlined' | 'contained'>('outlined');
 
 	const handleNoClick = () => {
 		setNo('contained');

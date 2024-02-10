@@ -4,19 +4,27 @@ import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import './LandingPage.scss';
 import { connect } from 'react-redux';
-import { sendOfflineRequests } from '../../app/Effects.ts';
+import { sendOfflineRequests } from '../../app/Effects';
+import { AppState } from '../../models/state';
+import { AppDispatch } from '../../app/Store';
 
-const inputs = (state) => ({
+interface IProps {
+	numOfflineMatches: number;
+	sendOfflineRequests: () => void;
+	parentCallback: (teamNumber: string, eventCode: string, secretCode: string, scouterName: string) => void;
+}
+
+const inputs = (state: AppState) => ({
 	numOfflineMatches: state.cache.matches.length
 });
 
-const outputs = (dispatch) => ({
+const outputs = (dispatch: AppDispatch) => ({
 	sendOfflineRequests: () => dispatch(sendOfflineRequests())
 });
 
-class ConnectedLandingPage extends React.Component {
+class ConnectedLandingPage extends React.Component<IProps, any> {
 
-	constructor(props) {
+	constructor(props: IProps) {
 		super(props);
 		this.state = {
 			teamNumber: '',

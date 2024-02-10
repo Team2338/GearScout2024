@@ -3,8 +3,14 @@ import TextField from '@mui/material/TextField';
 import React from 'react';
 import './MatchInformation.scss';
 
+interface IProps {
+	matchNumber: string;
+	setMatchNumber: (matchNum: string) => void;
+	scoutingTeamNumber: string;
+	setScoutingTeamNumber: (teamNum: string) => void;
+}
 
-function MatchInformation(props) {
+function MatchInformation(props: IProps) {
 	return (
 		<div className="wrap">
 			<div className="logo">

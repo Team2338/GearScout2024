@@ -15,7 +15,7 @@ function App() {
 		scouterName: ''
 	});
 
-	const setUserInfoCallback = (teamNumber, eventCode, secretCode, scouterName) => {
+	const setUserInfoCallback = (teamNumber: string, eventCode: string, secretCode: string, scouterName: string) => {
 		setUserInfo({
 			teamNumber: teamNumber,
 			eventCode: eventCode,

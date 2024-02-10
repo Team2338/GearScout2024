@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { setClimb } from '../../app/Actions';
+import { useAppDispatch, useAppSelector } from '../../app/Hooks';
 
 function Stage() {
 
@@ -13,14 +13,14 @@ function Stage() {
 		triple: 7
 	};
 
-	const dispatch = useDispatch();
-	const stageValue = useSelector(state => state.teleop.stageClimb);
+	const dispatch = useAppDispatch();
+	const stageValue = useAppSelector(state => state.teleop.stageClimb);
 
-	const [None, setNone] = useState('outlined');
-	const [Parked, setParked] = useState('outlined');
-	const [Single, setSingle] = useState('outlined');
-	const [Double, setDouble] = useState('outlined');
-	const [Triple, setTriple] = useState('outlined');
+	const [none, setNone] = useState<'outlined' | 'contained'>('outlined');
+	const [parked, setParked] = useState<'outlined' | 'contained'>('outlined');
+	const [single, setSingle] = useState<'outlined' | 'contained'>('outlined');
+	const [double, setDouble] = useState<'outlined' | 'contained'>('outlined');
+	const [triple, setTriple] = useState<'outlined' | 'contained'>('outlined');
 
 	const handleNoneClick = () => {
 		setNone('contained');
@@ -72,35 +72,35 @@ function Stage() {
 
 			<Button
 				sx={ {m: 0.5} }
-				variant={ None }
+				variant={ none }
 				onClick={ handleNoneClick }
 			>
 				None
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ Parked }
+				variant={ parked }
 				onClick={ handleParkedClick }
 			>
 				Parked
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ Single }
+				variant={ single }
 				onClick={ handleSingleClick }
 			>
 				Single Climb
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ Double }
+				variant={ double }
 				onClick={ handleDoubleClick }
 			>
 				Double Climb
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ Triple }
+				variant={ triple }
 				onClick={ handleTripleClick }
 			>
 				Triple Climb
