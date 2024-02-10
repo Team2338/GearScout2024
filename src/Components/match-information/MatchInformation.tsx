@@ -3,8 +3,14 @@ import TextField from '@mui/material/TextField';
 import React from 'react';
 import './MatchInformation.scss';
 
+interface IProps {
+	matchNumber: string;
+	setMatchNumber: (matchNum: string) => void;
+	scoutingTeamNumber: string;
+	setScoutingTeamNumber: (teamNum: string) => void;
+}
 
-function MatchInformation(props) {
+function MatchInformation(props: IProps) {
 	return (
 		<div className="wrap">
 			<div className="logo">
@@ -16,8 +22,8 @@ function MatchInformation(props) {
 					variant="standard"
 					sx={{ '& .MuiFormLabel-root': { color: 'primary.main' }, m: 0.5 }}
 					placeholder="Team Number"
-					value={props.scoutingTeamNumber}
-					onChange={(event) => {
+					value={ props.scoutingTeamNumber }
+					onChange={ (event) => {
 						return props.setScoutingTeamNumber(event.target.value);
 					}}
 				/>
@@ -26,16 +32,15 @@ function MatchInformation(props) {
 					variant="standard"
 					sx={{ '& .MuiFormLabel-root': { color: 'primary.main' }, m: 0.5 }}
 					placeholder="Match Number"
-					value={props.matchNumber}
-					onChange={(event) => props.setMatchNumber(event.target.value)}
+					value={ props.matchNumber }
+					onChange={ (event) => props.setMatchNumber(event.target.value) }
 				/>
 			</div>
 			<div className="analytics">
-				<Button sx={{ m: 0.5 }} variant="contained" href="https://data.gearitforward.com/">Analytics</Button>
+				<Button sx={ {m: 0.5} } variant="contained" href="https://data.gearitforward.com/">Analytics</Button>
 			</div>
 		</div>
 	);
 }
-
 
 export default MatchInformation;

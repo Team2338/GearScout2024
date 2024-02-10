@@ -1,10 +1,16 @@
-
-export enum Gamemodes {
+export enum Gamemode {
 	teleop = 'TELEOP',
 	auto = 'AUTO'
 }
 
+export enum AllianceColor {
+	red = 'RED',
+	blue = 'BLUE',
+	unknown = 'UNKNOWN'
+}
+
 export interface IMatch {
+	gameYear: number;
 	eventCode: string;
 	matchNumber: string;
 	robotNumber: string;
@@ -19,7 +25,7 @@ export interface ICachedMatch extends IMatch {
 }
 
 export interface IObjective {
-	gamemode: Gamemodes,
+	gamemode: Gamemode,
 	objective: string;
 	count: number;
 	list?: number[];

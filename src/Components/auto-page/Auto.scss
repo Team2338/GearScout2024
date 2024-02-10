@@ -3,26 +3,23 @@ $tangaroa: rgb(2, 36, 62);
 $pumice: rgb(186, 191, 183);
 
 .background {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: $tangaroa;
-    color: $pumice;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: $tangaroa;
+  color: $pumice;
 }
-
 
 h1 {
-    color: $orange
+  color: $orange
 }
 
-
 .padding {
-    margin: 0px;
-    padding: 4px;
-    padding-top: 10px;
+  margin: 0;
+  padding: 10px 4px 4px 4px;
 }

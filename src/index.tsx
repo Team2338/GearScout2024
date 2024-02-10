@@ -34,7 +34,7 @@ const root = createRoot(container);
 root.render(
 	<Provider store={ store }>
 		<ThemeProvider theme={ theme }>
-			<App />
+			<App/>
 		</ThemeProvider>
 	</Provider>
 );

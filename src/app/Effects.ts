@@ -50,7 +50,7 @@ export const sendOfflineRequests = () => async (dispatch: AppDispatch, getState:
 
 	localStorage.setItem(OFFLINE_REQUEST_LOCATION, JSON.stringify(offlineRequests));
 	dispatch(getOfflineMatchesSuccess(nextOfflineRequests));
-	alert(`Failed to send ${nextOfflineRequests.length} requests`);
+	alert(`Failed to send ${ nextOfflineRequests.length } requests`);
 };
 
 export const submitMatch = (teamNumber: string, secretCode: string, match: IMatch) => async (dispatch: AppDispatch) => {

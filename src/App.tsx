@@ -1,13 +1,9 @@
-import React, {
-	useEffect,
-	useState
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { fetchOfflineRequests } from './app/Effects';
 import { useAppDispatch } from './app/Hooks';
 import DataCollectionPage from './Components/data-collection-page/DataCollectionPage';
 import LandingPage from './Components/landing-page/LandingPage';
-import Auto from './Components/auto-page/Auto';
 
 function App() {
 	const dispatch = useAppDispatch();
@@ -19,7 +15,7 @@ function App() {
 		scouterName: ''
 	});
 
-	const setUserInfoCallback = (teamNumber, eventCode, secretCode, scouterName) => {
+	const setUserInfoCallback = (teamNumber: string, eventCode: string, secretCode: string, scouterName: string) => {
 		setUserInfo({
 			teamNumber: teamNumber,
 			eventCode: eventCode,
@@ -36,22 +32,21 @@ function App() {
 		[dispatch]
 	);
 
-	let component = <LandingPage parentCallback={setUserInfoCallback}/>;
+	let component = <LandingPage parentCallback={ setUserInfoCallback }/>;
 	if (hasLoggedIn) {
 		component = (
 			<DataCollectionPage
-				teamNumber={userInfo.teamNumber}
-				eventCode={userInfo.eventCode}
-				secretCode={userInfo.secretCode}
-				scouterName={userInfo.scouterName}
+				teamNumber={ userInfo.teamNumber }
+				eventCode={ userInfo.eventCode }
+				secretCode={ userInfo.secretCode }
+				scouterName={ userInfo.scouterName }
 			/>
 		);
 	}
 
 	return (
 		<div className="App">
-			{component}
-			
+			{ component }
 		</div>
 	);
 }
