@@ -41,9 +41,9 @@ export default function Teleop() {
 		<>
 			<h1>Teleop</h1>
 			<h3 className="padding">Speaker</h3>
-			<Counter value={ lowGoalCount } change={ _setLowGoal } />
-			<h3 className="padding">Amp</h3>
 			<Counter value={ highGoalCount } change={ _setHighGoal } />
+			<h3 className="padding">Amp</h3>
+			<Counter value={ lowGoalCount } change={ _setLowGoal } />
 			<h3 className="padding">Trap</h3>
 			<Counter value={ trapCount } change={ _setTrap } />
 			<h3 className="padding">Stage</h3>

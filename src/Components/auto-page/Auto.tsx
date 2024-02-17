@@ -34,9 +34,9 @@ export default function Auto() {
 			<h3 className="padding">Leave</h3>
 			<Leave />
 			<h3 className="padding">Speaker</h3>
-			<Counter value={ lowGoalCount } change={ _setLowGoal } />
-			<h3 className="padding">Amp</h3>
 			<Counter value={ highGoalCount } change={ _setHighGoal } />
+			<h3 className="padding">Amp</h3>
+			<Counter value={ lowGoalCount } change={ _setLowGoal } />
 		</>
 	);
 }
