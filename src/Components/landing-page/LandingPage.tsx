@@ -76,12 +76,15 @@ class ConnectedLandingPage extends React.Component<IProps, any> {
 		return (
 			<div className="wrapper">
 				<div className="header">
-					<div className="left">
+					<div className="logo-wrapper">
 						<a href="https://twitter.com/FIRST2338">
 							<img src="2338-logo.png" alt="2338 logo" height="100rem"/>
 						</a>
 					</div>
-					<h1 className="Title">GearScout</h1>
+					<div className="title-and-version">
+						<h1 className="title">GearScout</h1>
+						<div>v{ process.env.REACT_APP_VERSION }</div>
+					</div>
 				</div>
 
 				<h1 className="login-title">Sign In:</h1>
