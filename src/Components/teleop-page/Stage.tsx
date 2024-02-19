@@ -20,7 +20,7 @@ function Stage() {
 		if (stageValue === stageValues[status]) {
 			return 'contained';
 		}
-			return 'outlined';
+		return 'outlined';
 	}
 
 

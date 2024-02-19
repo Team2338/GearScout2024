@@ -13,7 +13,7 @@ function Leave() {
 
 	const getButtonStyle = (status) => {
 		if (leaveValue === leaveValues[status]) {
-				return 'contained';
+			return 'contained';
 		}
 		return 'outlined';
 	}
