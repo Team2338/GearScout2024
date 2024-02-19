@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { setClimb } from '../../app/Actions';
 import { useAppDispatch, useAppSelector } from '../../app/Hooks';
 
@@ -16,92 +16,56 @@ function Stage() {
 	const dispatch = useAppDispatch();
 	const stageValue = useAppSelector(state => state.teleop.stageClimb);
 
-	const [none, setNone] = useState<'outlined' | 'contained'>('outlined');
-	const [parked, setParked] = useState<'outlined' | 'contained'>('outlined');
-	const [single, setSingle] = useState<'outlined' | 'contained'>('outlined');
-	const [double, setDouble] = useState<'outlined' | 'contained'>('outlined');
-	const [triple, setTriple] = useState<'outlined' | 'contained'>('outlined');
+	const getButtonStyle = (status) => {
+		if (stageValue === stageValues[status]) {
+			return 'contained';
+		}
+			return 'outlined';
+	}
 
-	const handleNoneClick = () => {
-		setNone('contained');
-		setParked('outlined');
-		setSingle('outlined');
-		setDouble('outlined');
-		setTriple('outlined');
-		dispatch(setClimb(stageValues.none));
-	};
 
-	const handleParkedClick = () => {
-		setParked('contained');
-		setNone('outlined');
-		setSingle('outlined');
-		setDouble('outlined');
-		setTriple('outlined');
-		dispatch(setClimb(stageValues.park));
-	};
+	const setValue = (status) => {
+		const points = stageValues[status];
+		dispatch(setClimb(points));
+	}
 
-	const handleSingleClick = () => {
-		setSingle('contained');
-		setNone('outlined');
-		setParked('outlined');
-		setDouble('outlined');
-		setTriple('outlined');
-		dispatch(setClimb(stageValues.single));
-	};
-
-	const handleDoubleClick = () => {
-		setDouble('contained');
-		setNone('outlined');
-		setParked('outlined');
-		setSingle('outlined');
-		setTriple('outlined');
-		dispatch(setClimb(stageValues.double));
-	};
-
-	const handleTripleClick = () => {
-		setTriple('contained');
-		setNone('outlined');
-		setParked('outlined');
-		setSingle('outlined');
-		setDouble('outlined');
-		dispatch(setClimb(stageValues.triple));
-	};
+	
 
 	return (
 		<div className="spacing">
 
 			<Button
 				sx={ {m: 0.5} }
-				variant={ none }
-				onClick={ handleNoneClick }
+				variant={ getButtonStyle('none') }
+				onClick={() => setValue('none')}
 			>
 				None
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ parked }
-				onClick={ handleParkedClick }
+				variant={ getButtonStyle('park') }
+				onClick={ () => setValue('park') }
 			>
 				Parked
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ single }
-				onClick={ handleSingleClick }
+				variant={ getButtonStyle('single') }
+				onClick={ () => setValue('single') }
 			>
 				Single Climb
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ double }
-				onClick={ handleDoubleClick }
+				variant={ getButtonStyle('double') }
+				onClick={ () => setValue('double') }
 			>
 				Double Climb
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ triple }
-				onClick={ handleTripleClick }
+				variant={ getButtonStyle('triple') }
+				onClick={ () => setValue('triple') }
 			>
 				Triple Climb
 			</Button>
