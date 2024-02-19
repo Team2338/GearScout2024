@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { setMobility } from '../../app/Actions';
 import { useAppDispatch, useAppSelector } from '../../app/Hooks';
 
@@ -11,37 +11,36 @@ function Leave() {
 	const dispatch = useAppDispatch();
 	const leaveValue = useAppSelector(state => state.auto.mobility);
 
-	const [no, setNo] = useState<'outlined' | 'contained'>('outlined');
-	const [yes, setYes] = useState<'outlined' | 'contained'>('outlined');
+	const getButtonStyle = (status) => {
+		if (leaveValue === leaveValues[status]) {
+			return 'contained';
+		}
+		return 'outlined';
+	}
 
-	const handleNoClick = () => {
-		setNo('contained');
-		setYes('outlined');
-		dispatch(setMobility(leaveValues.no));
-	};
+	const setValue = (status) => {
+		const points = leaveValues[status];
+		dispatch(setMobility(points))
+	}
 
-	const handleYesClick = () => {
-		setYes('contained');
-		setNo('outlined');
-		dispatch(setMobility(leaveValues.yes));
-	};
+
 
 	return (
+		
 		<div className="spacing">
-
 			<Button
 				sx={ {m: 0.5} }
-				variant={ yes }
-				onClick={ handleYesClick }
+				variant={ getButtonStyle('no') }
+				onClick={() => setValue('no') }
 			>
-				Yes
+				No
 			</Button>
 			<Button
 				sx={ {m: 0.5} }
-				variant={ no }
-				onClick={ handleNoClick }
+				variant={ getButtonStyle('yes') }
+				onClick={ () => setValue('yes') }
 			>
-				No
+				Yes
 			</Button>
 		</div>
 	);
