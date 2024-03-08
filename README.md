@@ -3,7 +3,7 @@
 ![logo](https://avatars.githubusercontent.com/u/8992546?s=200&v=4)
 
 ## What is GearScout?
-GearScout is a web-based scouting tool that collects quantitative data on teams during events. The app can collect data during all portions of a match, including autonoumous, teleoperated, and endgame. It is completely open and free to all FRC teams, so feel free to give it a try!
+GearScout is a web-based scouting tool that collects quantitative data on teams during events. The app can collect data during all portions of a match, including autonomous, teleoperated, and endgame. It is completely open and free to all FRC teams, so feel free to give it a try!
 
 ## What do I need to use it?
 All you need is a device that can connect to the internet! A steady internet connection is **NOT** required to use the app, but it is needed to send data to the server. 
