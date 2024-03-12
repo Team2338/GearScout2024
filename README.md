@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# GearScout: A Scouting Tool for FRC
+### Developed by Team 2338: Gear It Forward
+![logo](https://avatars.githubusercontent.com/u/8992546?s=200&v=4)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is GearScout?
+GearScout is a web-based scouting tool that collects quantitative data on teams during events. The app can collect data during all portions of a match, including autonomous, teleoperated, and endgame. It is completely open and free to all FRC teams, so feel free to give it a try!
 
-## Available Scripts
+## What do I need to use it?
+All you need is a device that can connect to the internet! A steady internet connection is **NOT** required to use the app, but it is needed to send data to the server. 
 
-In the project directory, you can run:
+## How can I access GearScout? 
+You can access GearScout from any device with [this link](https://gearitforward.com/).
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How do I use GearScout?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Signing in
+When you access GearScout, you will see a landing page with multiple fields for signing in. Enter your team number, event code, your name, and secret code in the text fields. Event and secret codes should be predetermined, and every scouter from the same team should use these codes. 
 
-### `npm test`
+![GearScout Landing Page](./src/images/GearScoutSignIn.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Entering robot and match info
+Once you log in, you will see more fields at the top of the screen. Enter the team number, match number, and the alliance the team is on.
 
-### `npm run build`
+![GearScout Info Section](./src/images/GearScoutInfo.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Entering Data
+There are two sections in GearScout: Auto and Teleop (including Endgame).
+<br>
+In the Auto section, you can note whether the robot left the starting zone, and how many game pieces the robot scored in the Speaker and Amp (note that these counters cannot be below zero).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![GearScout Auto](./src/images/GearScoutAuto.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the Teleop section, there are more counters for the Speaker and Amp, as well as a counter for the Trap (note that the Trap counter cannot go above 3). 
+<br>
+In the Stage section, click the button that corresponds to how many robots your robot hung with (for example, if the robot hung with one other robot on the same chain, you would select "Double Climb").
 
-### `npm run eject`
+![GearScout Teleop](./src/images/GearScoutTeleop.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Note that counters should only display the number of game pieces a robot scores, not the number of points scored.
+<br>
+Also note that there is no option to record whether a robot is spotlit.
+<br>
+Once you are finished, hit Submit! 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
