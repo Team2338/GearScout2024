@@ -14,6 +14,7 @@ const INITIAL_STATE: AppState = {
 	teleop: {
 		lowGoal: 0,
 		highGoal: 0,
+		pass: 0,
 		trap: 0,
 		stageClimb: 0
 	}
@@ -80,6 +81,14 @@ export function reducer(state: AppState = INITIAL_STATE, action: IAction): AppSt
 				teleop: {
 					...state.teleop,
 					lowGoal: action.payload
+				}
+			};
+		case ActionType.TELEOP_PASS_2024:
+			return {
+				...state,
+				teleop: {
+					...state.teleop,
+					pass: action.payload
 				}
 			};
 		case ActionType.CLIMB_2024:

@@ -9,6 +9,7 @@ import AllianceSelection from './AllianceSelection';
 import Auto from '../auto-page/Auto';
 import Teleop from '../teleop-page/Teleop';
 import { AllianceColor, Gamemode, IMatch, IObjective } from '../../models/models';
+import { AppState } from '../../models/state';
 
 interface IComponentState {
 	scoutingTeamNumber: string;
@@ -16,12 +17,13 @@ interface IComponentState {
 	allianceColor: AllianceColor;
 }
 
-const selector = (state) => ({
+const selector = (state: AppState) => ({
 	mobility: state.auto.mobility,
 	autoHighGoal: state.auto.highGoal,
 	autoLowGoal: state.auto.lowGoal,
 	teleopHighGoal: state.teleop.highGoal,
 	teleopLowGoal: state.teleop.lowGoal,
+	pass: state.teleop.pass,
 	stageClimb: state.teleop.stageClimb,
 	trap: state.teleop.trap
 
@@ -92,6 +94,11 @@ class ConnectedDataCollectionPage extends React.Component<any, IComponentState> 
 			},
 			{
 				gamemode: Gamemode.teleop,
+				objective: 'PASS_2024',
+				count: this.props.pass
+			},
+			{
+				gamemode: Gamemode.teleop,
 				objective: 'CLIMB_2024',
 				count: this.props.stageClimb
 			},
@@ -103,7 +110,7 @@ class ConnectedDataCollectionPage extends React.Component<any, IComponentState> 
 		];
 	};
 
-	submit = () => {
+	submit = (): void => {
 		// Let the user know if they missed an input
 		const problems: string[] = [];
 		if (this.state.matchNumber.length === 0) {

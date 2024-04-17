@@ -14,6 +14,7 @@ export enum ActionType {
 	AUTO_LOW_GOAL_2024 = '[GOAL] Set Auto Amp',
 	TELEOP_HIGH_GOAL_2024 = '[GOAL] Set Teleop Speaker',
 	TELEOP_LOW_GOAL_2024 = '[GOAL] Set Teleop Amp',
+	TELEOP_PASS_2024 = '[GOAL] Set Teleop Pass',
 	CLIMB_2024 = '[CLIMB] Set hanging chain',
 	ENDGAME_2024 = '[ENDGAME] Set trap '
 }
@@ -58,6 +59,13 @@ export const setLowGoal = (gamemode: Gamemode, value: number): IAction => {
 	const type = (gamemode === Gamemode.teleop) ? ActionType.TELEOP_LOW_GOAL_2024 : ActionType.AUTO_LOW_GOAL_2024;
 	return {
 		type: type,
+		payload: value
+	};
+};
+
+export const setTeleopPass = (value: number): IAction => {
+	return {
+		type: ActionType.TELEOP_PASS_2024,
 		payload: value
 	};
 };
